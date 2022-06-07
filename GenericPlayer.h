@@ -1,6 +1,8 @@
 #ifndef CPP_OOP_GENERICPLAYER_H
 #define CPP_OOP_GENERICPLAYER_H
 
+#include <utility>
+
 #include "string"
 #include "Hand.h"
 
@@ -10,14 +12,11 @@ class GenericPlayer : public Hand {
 private:
     string Name;
 public:
-    explicit GenericPlayer(string n): Name(n) {};
+    explicit GenericPlayer(string n): Name(std::move(n)) {};
 
     FORCEINLINE string GetName() const { return Name; }
 
-    // Uncomment this when GenericPlayer will have inherited classes
-    //virtual bool IsHitting() = 0;
-
-    virtual bool IsHitting() {};
+    virtual bool IsHitting() = 0;
 
     bool IsBusted();
     void Bust();
