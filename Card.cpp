@@ -19,3 +19,60 @@ map<Names, int> Card::CardValues{
         {Names::QUEEN, 10},
         {Names::KING, 10},
 };
+
+string Card::GetSuiteName() const {
+    switch (Suite) {
+        case CLUBS:
+            return "Clubs";
+        case HEARTS:
+            return "Hearts";
+        case DIAMONDS:
+            return "Diamonds";
+        case SPADES:
+            return "Spades";
+        default:
+            return "Undefined";
+    }
+}
+
+string Card::GetCardName() const {
+    switch (Name) {
+        case ACE:
+            return "Ace";
+        case TWO:
+            return "Two";
+        case THREE:
+            return "Three";
+        case FOUR:
+            return "Four";
+        case FIVE:
+            return "Five";
+        case SIX:
+            return "Six";
+        case SEVEN:
+            return "Seven";
+        case EIGHT:
+            return "Eight";
+        case NINE:
+            return "Nine";
+        case TEN:
+            return "Ten";
+        case JACK:
+            return "Jack";
+        case QUEEN:
+            return "Queen";
+        case KING:
+            return "King";
+    }
+}
+
+// Задание 5
+ostream &operator<<(ostream &out, const Card &card) {
+    if (card.GetIsFlipped()) {
+        out << card.GetCardName() << " of " << card.GetSuiteName();
+    } else {
+        out << "XX";
+    }
+
+    return out;
+}

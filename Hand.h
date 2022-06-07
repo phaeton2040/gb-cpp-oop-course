@@ -14,6 +14,8 @@ public:
     void Clear();
     int GetValue();
 
+    FORCEINLINE std::vector<Card*> GetCards() const { return Cards; }
+
     static const int MAX = 21;
     static const int ACE_MIN_VALUE = 1;
 };

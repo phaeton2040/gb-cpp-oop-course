@@ -1,6 +1,7 @@
 #ifndef CPP_OOP_CARD_H
 #define CPP_OOP_CARD_H
 #include "Helpers.h"
+#include "ostream"
 
 class Card {
 private:
@@ -16,8 +17,13 @@ public:
     FORCEINLINE int GetValue() const { return Value; }
     FORCEINLINE int GetName() const { return Name; }
     FORCEINLINE int GetSuite() const { return Suite; }
+    FORCEINLINE int GetIsFlipped() const { return IsFlipped; }
+
+    string GetSuiteName() const;
+    string GetCardName() const;
 
     void Flip();
+    friend ostream& operator<<(ostream& out, const Card& card);
 
     static map<Names, int> CardValues;
 };
